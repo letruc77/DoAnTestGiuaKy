@@ -89,6 +89,17 @@ namespace UnitTestDoAnGiuaKy
             var mes = result.Data.ToString();
             Assert.AreNotEqual("success", mes);
         }
-        #endregion 
+        #endregion
+        #region phần về sản phẩm
+        [TestMethod]
+        public void TestAddProduct()
+        {
+            DoAnWeb.Xe xe = new Xe();
+            DoAnWeb.Areas.Admin.Controllers.ProductsController ctrl = new DoAnWeb.Areas.Admin.Controllers.ProductsController();
+            var result = ctrl.ThemXe(xe,"");
+            var mes = result.Data.ToString();
+            Assert.AreEqual("success", mes);
+        }
+        #endregion
     }
 }
