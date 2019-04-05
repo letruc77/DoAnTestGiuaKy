@@ -9,7 +9,7 @@ namespace DoAnWeb.Areas.Admin.Controllers
     [Authorize]
     public class AdminLoginController : Controller
     {
-        DoAnWebEntities daw = new DoAnWebEntities();
+        public DoAnWebEntities daw = new DoAnWebEntities();
         // GET: Admin/AdminLogin
         [AllowAnonymous]
         public ActionResult AdminLogin()
