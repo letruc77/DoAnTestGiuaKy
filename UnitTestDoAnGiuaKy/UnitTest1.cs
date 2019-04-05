@@ -11,6 +11,7 @@ namespace UnitTestDoAnGiuaKy
     [TestClass]
     public class UnitTest1
     {
+        #region Test Login
         private String GetMD5(string txt)
         {
             String str = "";
@@ -62,5 +63,19 @@ namespace UnitTestDoAnGiuaKy
             var mes = result.Data.ToString();
             Assert.AreNotEqual("success", mes);
         }
+        [TestMethod]
+        public void TestLoginUsePassError()
+        {
+            string username = "admin";
+            string password = "admin2018";
+            DoAnWeb.NguoiDung nd = new NguoiDung();
+            nd.TenNguoiDung = username;
+            nd.PassWord = password; ;
+            DoAnWeb.Areas.Admin.Controllers.AdminLoginController ctrl = new DoAnWeb.Areas.Admin.Controllers.AdminLoginController();
+            var result = ctrl.AdminLogin(nd) as JsonResult;
+            var mes = result.Data.ToString();
+            Assert.AreNotEqual("success", mes);
+        }
+        #endregion 
     }
 }
