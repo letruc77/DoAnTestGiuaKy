@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Admin - Quản lý xe";
+}
+<div class="card mb-3" ng-controller="Admin_Products">
+    <div class="card-header" style="float:left">
+        <i class="fas fa-table"></i>
+        Danh sách xe
+        <span style="margin-left:80%">
+            @*<a  style="text-decoration:none" href="#"><span style="color:green"><b>Thêm xe</b></span></a>*@
+            @*<button ng-click="LoadListXe()" class="btn btn-primary">Tìm</button>*@
+            <button onclick="window.location.href = '/Admin/Products/ThemXe'" class="btn btn-success">Thêm xe</button>
+        </span>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên Xe</th>
+                        <th>Số khung</th>
+                        <th>Số máy</th>
+                        <th>Chi tiết</th>
+                        <th>Hình ảnh</th>
+                        <th>Nhà cung cấp</th>
+                        <th>Loại xe</th>
+                        <th>Kho</th>
+                        <th>Tình trạng</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="xe in ListXe">
+                        <td>{{xe.TenXe}}</td>
+                        <td>{{xe.SoKhung}}</td>
+                        <td>{{xe.SoMay}}</td>
+                        <td>{{xe.ChiTiet}}</td>
+                        <td><img src="~/Images/product/{{xe.Hinh1}}" style="width:100px;height:100px" /></td>
+                        <td>{{xe.TenNCC}}</td>
+                        <td>{{xe.TenLoaiXe}}</td>
+                        <td>{{xe.TenKho}}</td>
+                        <td>{{xe.TinhTrang}}</td>
+                        <td style="float:left">
+                            @*<button class="btn btn-success" ng-click="CapNhatXe(xe)">Cập nhật</button>
+                            <button class="btn btn-danger" ng-click="XoaXe(xe)">Xóa xe</button>*@
+                            <a href="/Admin/Products/CapNhatXe/{{xe.IdXe}}" style="text-decoration:none">Cập nhật</a>
+                            @*<a href="/Admin/Products/XoaXe/{{xe.IdXe}}" style="text-decoration:none">Xóa</a>*@
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

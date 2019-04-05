@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Admin - Loại xe";
+}
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/admin/admin/adminhome">Admin</a>
+        </li>
+        <li class="breadcrumb-item active">Loại xe</li>
+    </ol>
+    <div class="row">
+
+    </div>
+</div>
+<div class="card mb-3" ng-controller="Admin_LoaiXe">
+    <div class="card-header" style="float:left">
+        <i class="fas fa-table"></i>
+        Danh sách
+        <span style="margin-left:70%">
+            <button onclick="window.location.href = '/Admin/Products/ThemLoaiXe'" class="btn btn-success">Thêm loại xe</button>
+        </span>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên loại xe</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="lx in ListLoaiXe">
+                        <td>{{lx.TenLoaiXe}}</td>
+                        <td>
+                            <a href="/Admin/Products/CapNhatLoaiXe/{{lx.IdLoaiXe}}" style="text-decoration:none">Cập nhật</a>
+                            @*<button class="btn btn-success" ng-click="CapNhatLoaiXe(lx)">Cập nhật</button>*@
+                            @*<button class="btn btn-danger" ng-click="XoaLoaiXe(lx)">Xóa xe</button>*@
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

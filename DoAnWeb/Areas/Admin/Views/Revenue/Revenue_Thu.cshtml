@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Revenue_Thu";
+}
+
+<div class="card mb-3" ng-controller="Admin_Report">
+    <div class="card-header" style="float:left">
+        <i class="fas fa-table"></i>
+        Danh sách phiếu thu
+    </div>
+    <br />
+    <form novalidate name="f1" ng-submit="InitThu(report)">
+
+        <div class="form-group">
+            <div class="form-row" style="margin-left:25%">
+                <div class="col-md-3">
+                    <div class="form-label-group">
+                        <input type="date" id="From" class="form-control" value="@DateTime.Now" placeholder="Từ ngày" required="required" ng-model="report.TuNgay">
+                        <label for="From">Từ ngày</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-label-group">
+                        <input type="date" id="To" class="form-control" value="@DateTime.Now" placeholder="Đến ngày" required="required" ng-model="report.DenNgay">
+                        <label for="To">Đến ngày</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="submit" style="margin-left:50%" class="btn btn-success" value="{{submitText}}" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã hóa đơn</th>
+                        <th>Ngày thu</th>
+                        <th>Tổng số lượng</th>
+                        <th>Tổng tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="thu in ListThu">
+                        <td>{{thu.MaHoaDonThu}}</td>
+                        <td>{{thu.NgayThu | date: "MM/dd/yyyy"}}</td>
+                        <td>{{thu.TongSoLuong}}</td>
+                        <td>{{thu.TongTien}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

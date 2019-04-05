@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "Chi tiết xe";
+}
+<style>
+    .image-box {
+        width: 380px;
+        overflow: hidden;
+    }
+
+    .image {
+        width: 380px;
+        height: 350px;
+        background-position: center;
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+        -o-transition: all .5s ease;
+        transition: all .5s ease;
+    }
+
+        .image:hover {
+            -webkit-transform: scale(1.2);
+            -moz-transform: scale(1.2);
+            -o-transform: scale(1.2);
+            -ms-transform: scale(1.2); /* IE 9 */
+            transform: scale(1.2);
+        } 
+</style>
+<div class="mens" ng-controller="HomeController">
+    <div class="main">
+        <div class="wrap">
+            <ul class="breadcrumb breadcrumb__t"><a class="home" href="/Home/Index">Home</a> / <a href="#">@ViewBag.Xe.TenXe</a></ul>
+            @*<ul class="breadcrumb breadcrumb__t"><li class="home" href="/Home/Index">Home</li> / <li href="#">@ViewBag.Xe.TenXe</li></ul>*@
+            <div class="cont span_2_of_3">
+                <div class="grid images_3_of_2">
+                    <ul id="etalage">
+                        @*<li>
+                            <img class="image detail-view" src="~/Images/product/@ViewBag.Xe.Hinh1" style="width:100%;height:100%" />
+                        </li>*@
+                        <li>
+                            <div class="image-box">
+                                <div class="image">
+                                    <img class="image detail-view" src="~/Images/product/@ViewBag.Xe.Hinh1" style="width:100%;height:100%" />
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="desc1 span_3_of_2">
+                    <h3 class="m_3">@ViewBag.Xe.TenXe</h3>
+                    <p class="m_5">@String.Format("{0:C}", @ViewBag.Xe.GiaNiemYetXe) <br /> <span class="reducedfrom">@String.Format("{0:C}", (ViewBag.Xe.GiaNiemYetXe + 10000000))</span></p>
+                    <div class="btn_form">
+                        <form>
+                            @*<input type="submit" value="Thêm vào giỏ hàng" title="" onclick="ThemVaoGioHang()">*@
+                            <a href="/Cart/AddItem?SanPhamID=@ViewBag.Xe.IdXe&SoLuong=1"><input type="button" class="btn btn-success" value="Thêm vào giỏ hàng" title=""></a>
+                        </form>
+                    </div>
+                    @*<span class="m_link"><a href="#"></a> </span>*@
+                    <p class="m_text2">@ViewBag.Xe.ChiTiet</p>
+                </div>
+                <div class="clear"></div>
+                <div class="clients">
+                    <h3 class="m_3">Những thông tin khác về chiếc xe @ViewBag.Xe.TenXe</h3>
+                    <ul id="flexiselDemo3"></ul>
+                    <script type="text/javascript">
+                        $(window).load(function () {
+                        });
+                    </script>
+                    <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+                </div>
+                <div class="toogle">
+                    <h3 class="m_3">Hình ảnh chi tiết về xe</h3>
+                    <p class="m_text">
+                        Đây là một trong những chiếc xe mới về và đặc biệt nhất của Leo Shop. Đây là dòng xe mới của năm @DateTime.Now.Year đầy mạnh mẽ và quyến rũ
+                        <img style="margin-left:30%;width:50%;height:35%" src="~/Images/product/@ViewBag.Xe.Hinh2" />
+                    </p>
+                </div>
+                <div class="toogle">
+                    <p>
+                        <span>Những hình ảnh cho chiếc xe này sẽ giúp bạn hiểu rõ hơn về chiếc xe hoàn toàn mới của chúng tôi.</span>
+                        <img style="margin-left:30%;width:50%;height:35%" src="~/Images/product/@ViewBag.Xe.Hinh3" />
+                        <br />
+                        <span>
+                            Rất hân hạnh và vui mừng được đón tiếp quý khách tại website của chúng tôi, mong là quý khách sẽ có sự lựa chọn đúng đắn nhất cho mình để sở hữu những chiếc xe mới và đẹp nhất ủa Leo Shop vào năm @DateTime.Now.Year này. Xin chân thành cảm ơn quý khách!
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="rsingle span_1_of_single">
+                <h5 class="m_1">Quảng cáo</h5>
+                <div class="top-border"> </div>
+                <div class="border">
+                    <link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
+                    <link href="css/nivo-slider.css" rel="stylesheet" type="text/css" media="all" />
+                    <script src="js/jquery.nivo.slider.js"></script>
+                    <script type="text/javascript">
+                    </script>
+                    <div class="slider-wrapper theme-default">
+                        <div id="slider" class="nivoSlider">
+                            <img src="~/images/product/banner1.jpg" alt="banner1" title="Xe mới về của TOYOTA" />
+                            <img src="~/images/product/banner2.jpg" alt="banner2" title="Siêu xe của BMW" />
+                            <img src="~/images/product/banner3.jpg" alt="banner3" title="Thiết kế hoàn hảo của HONDA" />
+                        </div>
+                    </div>
+                    <div class="btn"><a href="single.html">Check it Out</a></div>
+                </div>
+                <div class="top-border"> </div>
+                <div class="sidebar-bottom">
+                    <h2 class="m_1">Bảng tin<br>Đăng nhập</h2>
+                    <p class="m_text">Xe và cuộc sống</p>
+                    <div class="subscribe">
+                        <form>
+                            <input name="userName" type="text" class="textbox">
+                            <input type="submit" value="Subscribe">
+                        </form>
+                    </div>
+                </div>
+                <script src="js/jquery.easydropdown.js"></script>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Đăng ký";
+}
+<style>
+    #tenPassWord {
+        font-size: 0.95em;
+        color: #777;
+        padding: 8px;
+        outline: none;
+        margin: 10px 0;
+        width: 91%;
+        font-family: 'Exo 2', sans-serif;
+        border: none;
+        -webkit-box-shadow: 0 0 2px #aaa;
+    }
+</style>
+<div ng-controller="LoginController">
+    <div class="register_account">
+        <div class="wrap">
+            <h4 class="title">Đăng ký tài khoản</h4>
+            <form novalidate name="f1" ng-submit="Dangky(nguoidung)">
+                <div class="col_1_of_2 span_1_of_2">
+                    <div>
+                        <input type="text" id="tenNguoiDung" class="form-control" placeholder="Tên người dùng" required="required" autofocus="autofocus" ng-model="nguoidung.TenNguoiDung">
+                    </div>
+                    <div>
+                        <input type="password" id="tenPassWord" class="form-control" placeholder="Mật khẩu" required="required" ng-model="nguoidung.PassWord">
+                    </div>
+                </div>
+                <div class="col_1_of_2 span_1_of_2">
+                    <div>
+                        <input type="text" id="Email" class="form-control" placeholder="Email" required="required" ng-model="nguoidung.Email">
+                    </div>
+                    <div>
+                        <input type="text" id="soDienThoai" class="form-control" placeholder="Số điện thoại" required="required" ng-model="nguoidung.SoDienThoai" maxlength="11">
+                    </div>
+                </div>
+                @*<button type="submit" class="grey">Đăng ký</button>*@
+                <input type="submit" class="grey" value="{{submitText}}" />
+                <div class="clear"></div>
+            </form>
+        </div>
+    </div>
+</div>

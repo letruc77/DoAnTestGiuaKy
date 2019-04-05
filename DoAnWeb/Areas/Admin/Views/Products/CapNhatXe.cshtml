@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "CapNhatXe";
+}
+<div>
+    <form>
+        <span style="padding-left:40%; color:forestgreen; font-size:30px"><b>CẬP NHẬT XE</b></span>
+        <hr />
+        <div class="form-group">
+            <div class="form-row">
+                <input id="IdXe" value="@ViewBag.xeUpdate.IdXe" hidden />
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <input type="text" id="soKhung" name="SoKhung" class="form-control" placeholder="Số khung" required="required" autofocus="autofocus" maxlength="10" disabled value="@ViewBag.xeUpdate.SoKhung">
+                        <label for="soKhung">Số khung</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <input type="text" id="soMay" class="form-control" name="SoMay" placeholder="Số máy" required="required" maxlength="10" disabled value="@ViewBag.xeUpdate.SoMay">
+                        <label for="soMay">Số máy</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <select id="maLoaiXe" class="form-control" style="height:50px" required="required" name="MaLoaiXe">
+                            <option value="">-----Chọn-----</option>
+                            @foreach (var item in ViewBag.loaixe)
+                            {
+                                if (item.IdLoaiXe  == ViewBag.xeUpdate.MaLoaiXe)
+                                {
+                                    <option value="@item.IdLoaiXe" selected>@item.TenLoaiXe</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.IdLoaiXe">@item.TenLoaiXe</option>
+                                }
+                            }
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label-group">
+                <textarea class="form-control" id="chiTiet" rows="5" name="ChiTiet" placeholder="Chi tiết xe" required="required">@ViewBag.xeUpdate.ChiTiet</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <input type="text" id="tenXe" name="TenXe" class="form-control" placeholder="Tên xe" required="required" value="@ViewBag.xeUpdate.TenXe">
+                        <label for="tenXe">Tên xe</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <select id="khoXe" class="form-control" style="height:50px" required="required" name="IdKhoXe">
+                            <option value="">-----Chọn-----</option>
+                            @foreach (var item in ViewBag.khoxe)
+                            {
+                                if (item.IdKhoXe == ViewBag.xeUpdate.IdKhoXe)
+                                {
+                                    <option value="@item.IdKhoXe" selected>@item.TenKho</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.IdKhoXe">@item.TenKho</option>
+                                }
+                            }
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <input type="date" id="ngayNhap" name="NgayNhap" class="form-control" placeholder="Ngày nhập xe" required="required" value="@ViewBag.xeUpdate.NgayNhap">
+                        <label for="ngayNhap">Ngày nhập xe</label>
+                    </div>
+                </div>
+                @*<div class="col-md-3">
+                    <div class="form-label-group">
+                        <input type="file" id="file" name="file" multiple onchange="angular.element(this).scope().setFile(this)" accept="image/*" class="btn btn-success" />
+                        <label for="file" style="color:red">Hình ảnh xe(Vui lòng chọn 3 hình)</label>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <select id="NCC" class="form-control" style="height:50px" required="required" name="IdNhaCungCap">
+                            <option value="">-----Chọn-----</option>
+                            @foreach (var item in ViewBag.ncc)
+                            {
+                                if (item.IdNhaCungCap == ViewBag.xeUpdate.IdNhaCungCap)
+                                {
+                                    <option value="@item.IdNhaCungCap" selected>@item.TenNCC</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.IdNhaCungCap">@item.TenNCC</option>
+                                }
+                            }
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <input type="number" id="GiaVon" name="GiaVon" class="form-control" required="required" placeholder="Giá vốn" value="@ViewBag.xeUpdate.GiaVonXe"  max="999999999999">
+                        <label for="GiaVon">Giá vốn</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <input type="number" id="GiaNiemYet" name="GiaNiemYetXe" class="form-control" required="required" placeholder="Giá niêm yết" value="@ViewBag.xeUpdate.GiaNiemYetXe"  max="999999999999">
+                        <label for="GiaNiemYet">Giá niêm yết</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <input type="submit" style="margin-left:50%" class="btn btn-success" onclick="Luu()" value="Lưu" />
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    function Luu() {
+        debugger;
+        var IdXe = $("#IdXe").val();
+        var MaLoaiXe = $("#maLoaiXe").val();
+        var ChiTiet = $("#chiTiet").val();
+        var TenXe = $("#tenXe").val();
+        var IdKhoXe = $("#khoXe").val();
+        var NgayNhap = $("#ngayNhap").val();
+        var IdNhaCungCap = $("#NCC").val();
+        var GiaVonXe = $("#GiaVon").val();
+        var GiaNiemYetXe = $("#GiaNiemYet").val();
+        var xe = {
+            IdXe: IdXe,
+            MaLoaiXe: MaLoaiXe,
+            ChiTiet: ChiTiet,
+            TenXe: TenXe,
+            IdKhoXe: IdKhoXe,
+            NgayNhap: NgayNhap,
+            IdNhaCungCap: IdNhaCungCap,
+            GiaVonXe: GiaVonXe,
+            GiaNiemYetXe: GiaNiemYetXe
+        };
+        $.ajax({
+            url: "/Admin/Products/CapNhatXe",
+            type: "POST",
+            data: { xe: xe },
+            success: function (result) {
+                debugger;
+                if (result == "Success") {
+                    debugger;
+                    alert("Bạn đã cập nhật xe thành công");
+                    //var link = $location.path();
+                    //link = link.remove("/#");
+                    //$window.location.href = link + '/Admin/Products/Index';
+                    $window.location.href = 'http://localhost:54440/Admin/Products/Index';
+                }
+                else {
+
+                }
+
+            }
+        });
+    }
+
+</script>
+

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Admin - Thêm loại xe";
+}
+<div ng-controller="Admin_LoaiXe">
+    <form novalidate name="f1" ng-submit="ThemLoaiXe(LoaiXe)">
+        <span style="padding-left:40%; color:forestgreen; font-size:30px"><b>THÊM LOẠI XE</b></span>
+        <hr />
+        <div style="color:red">{{message}}</div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-label-group">
+                        <input type="text" id="tenLoaiXe" class="form-control" placeholder="Tên loại xe" required="required" autofocus="autofocus" ng-model="LoaiXe.TenLoaiXe">
+                        <label for="tenLoaiXe">Tên loại xe</label>
+                    </div>
+                </div>
+                @*<div class="col-md-6">
+                    <div class="form-label-group">
+                        <select id="NCC" class="form-control" style="height:50px" required="required" ng-model="loaiXe.IdNhaCungCap">
+                            <option value="">-----Chọn-----</option>
+                            <option ng-repeat="ncc in ListNCC" value="{{ncc.IdNhaCungCap}}">{{ncc.TenNCC}}</option>
+                        </select>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+        <br />
+        <div>
+            <input type="submit" style="margin-left:50%" class="btn btn-success" value="{{submitText}}" />
+        </div>
+    </form>
+</div>

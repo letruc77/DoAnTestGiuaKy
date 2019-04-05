@@ -1,0 +1,55 @@
+﻿@model List<DoAnWeb.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    #txtSoLuong {
+        width: 30px;
+        text-align: center;
+    }
+</style>
+<div ng-controller="LoginController" class="login">
+    <div class="wrap">
+        <h4 class="title">Giỏ hàng</h4>
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Số khung</th>
+                        <th scope="col">Số máy</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Đơn giá</th>
+                        <th scope="col">Thành tiền</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>@item.SanPham.SoKhung</td>
+                            <td>@item.SanPham.SoMay</td>
+                            <td><button class="btn" id="btnPlus">+</button> <input type="text" id="txtSoLuong" data-id="@item.SanPham.IdXe" value="@item.SoLuong" min="0" /> <button class="btn" id="btnReduce">-</button></td>
+                            <td>@string.Format("{0:N0}", item.SanPham.GiaNiemYetXe)</td>
+                            <td>@string.Format("{0:N0}", item.SanPham.GiaNiemYetXe * item.SoLuong)</td>
+                            <td><input type="button" value="Xóa" class="alert-danger" id="btnDelete" data-id="@item.SanPham.IdXe" /></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
+            <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+            <button id="btnDeleteAll" class="btn">Xóa giỏ hàng</button>
+            <button id="btnPayment" class="btn">Thanh toán</button>
+        }
+        else
+        {
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+
+    </div>
+</div>

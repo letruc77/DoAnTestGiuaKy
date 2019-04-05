@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Viet Admin</title>
+    <!-- Bootstrap core CSS-->
+    <link href="~/Areas/Admin/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom fonts for this template-->
+    <link href="~/Areas/Admin/css/all.min.css" rel="stylesheet" />
+    <!-- Page level plugin CSS-->
+    <link href="~/Areas/Admin/css/dataTables.bootstrap4.css" rel="stylesheet" />
+    <!-- Custom styles for this template-->
+    <link href="~/Areas/Admin/css/sb-admin.css" rel="stylesheet" />
+</head>
+<body id="page-top" ng-app="CarShopApp">
+    <!--header-->
+    @Html.Partial("~/Areas/Admin/Views/Shared/_Header.cshtml")
+    <div id="wrapper">
+        <!--Sidebar-->
+        @Html.Partial("~/Areas/Admin/Views/Shared/_Sidebar.cshtml")
+        <!-- Content -->
+
+        <div id="content-wrapper">
+            @*@Html.Partial("~/Areas/Admin/Views/Shared/_Content.cshtml")*@
+            @RenderBody()
+        </div>
+    </div>
+    @*@RenderSection("scripts", required: false)*@
+    <!-- Bootstrap core JavaScript-->
+    @*<script src="~/Areas/Admin/js/angular.js"></script>*@
+    <script src="~/Areas/Admin/js/angular.min.js"></script>
+    <script src="~/Areas/Admin/js/angular-route.js"></script>
+    <script src="~/Areas/Admin/js/angular-route.min.js"></script>
+    <script src="~/Scripts/app/CarShopApp.js"></script>
+    <script src="~/Scripts/app/Controller/Admin_ProductsController.js"></script>
+    <script src="~/Scripts/app/Controller/Admin_NCCController.js"></script>
+    <script src="~/Scripts/app/Controller/Admin_KhoXeController.js"></script>
+    <script src="~/Scripts/app/Controller/Admin_LoaiXeController.js"></script>
+    <script src="~/Scripts/app/Controller/Admin_ReportController.js"></script>
+    <script src="~/Areas/Admin/js/jquery.min.js"></script>
+    <script src="~/Areas/Admin/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Areas/Admin/js/jquery.easing.min.js"></script>
+    @*<script src="~/Areas/Admin/js/Chart.min.js"></script>*@
+    <script src="~/Areas/Admin/js/jquery.dataTables.js"></script>
+    <script src="~/Areas/Admin/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Areas/Admin/js/sb-admin.min.js"></script>
+    <script src="~/Areas/Admin/js/datatables-demo.js"></script>
+    @*<script src="~/Areas/Admin/js/chart-area-demo.js"></script>*@
+</body>
+</html>

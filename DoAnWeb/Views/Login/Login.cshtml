@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+<div ng-controller="LoginController">
+
+    <div class="login">
+        <div class="wrap">
+            <div class="col_1_of_login span_1_of_login" style="margin-left:25%">
+                <div class="login-title">
+                    <h4 class="title">Đăng nhập khách hàng</h4>
+                    <div id="loginbox" class="loginbox">
+                        <form novalidate name="f1" ng-submit="Dangnhap(nguoidung)">
+                            <fieldset class="input">
+                                <p id="login-form-username">
+                                    <label for="modlgn_username">Email</label>
+                                    <input id="modlgn_username" type="text" name="email" class="inputbox" size="18" autocomplete="off" ng-model="nguoidung.Email">
+                                </p>
+                                <p id="login-form-password">
+                                    <label for="modlgn_passwd">Mật khẩu</label>
+                                    <input id="modlgn_passwd" type="password" name="password" class="inputbox" size="18" autocomplete="off" ng-model="nguoidung.PassWord">
+                                </p>
+                                <div class="remember">
+                                    <p id="login-form-remember">
+                                        <label for="modlgn_remember"><a href="#">Quên mật khẩu ? </a></label>
+                                    </p>
+                                    <input type="submit" name="Submit" class="button" value="Đăng nhập"><div class="clear"></div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+</div>
+

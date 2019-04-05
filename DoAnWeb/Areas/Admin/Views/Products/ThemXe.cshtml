@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "Admin - Thêm xe";
+}
+<div ng-controller="Admin_Products">
+    <form novalidate name="f1" ng-submit="ThemXe(Xe)">
+        <span style="padding-left:40%; color:forestgreen; font-size:30px"><b>THÊM MỚI XE</b></span>
+        <hr />
+        <div style="color:red">{{message}}</div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <input type="text" id="soKhung" class="form-control" placeholder="Số khung" required="required" autofocus="autofocus" maxlength="10" ng-model="Xe.SoKhung">
+                        <label for="soKhung">Số khung</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <input type="text" id="soMay" class="form-control" placeholder="Số máy" required="required" maxlength="10" ng-model="Xe.SoMay">
+                        <label for="soMay">Số máy</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <select id="maLoaiXe" class="form-control" style="height:50px" required="required" ng-model="Xe.MaLoaiXe">
+                            <option value="">-----Chọn-----</option>
+                            <option ng-repeat="loaiXe in ListLoaiXe" value="{{loaiXe.IdLoaiXe}}">{{loaiXe.TenLoaiXe}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label-group">
+                <textarea class="form-control" id="chiTiet" rows="5" placeholder="Chi tiết xe" required="required" ng-model="Xe.ChiTiet"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="form-label-group">
+                        <input type="text" id="tenXe" class="form-control" placeholder="Tên xe" required="required" ng-model="Xe.TenXe">
+                        <label for="tenXe">Tên xe</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-label-group">
+                        <select id="khoXe" class="form-control" style="height:50px" required="required" ng-model="Xe.IdKhoXe">
+                            <option value="">-----Chọn-----</option>
+                            <option ng-repeat="khoXe in ListKhoXe" value="{{khoXe.IdKhoXe}}">{{khoXe.TenKho}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-label-group">
+                        <input type="date" id="ngayNhap" class="form-control" placeholder="Ngày nhập xe" required="required" ng-model="Xe.NgayNhap">
+                        <label for="ngayNhap">Ngày nhập xe</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-label-group">
+                        @*<input type="file" id="hinh1" name="Hinh1" onchange="angular.element(this).scope().SelectedFileForUpload(this)" accept="image/*" class="form-control" placeholder="Hình thứ nhất" required="required">*@
+                        <input type="file" id="file" name="file" multiple onchange="angular.element(this).scope().setFile(this)" accept="image/*" class="btn btn-success" />
+                        <label for="file" style="color:red">Hình ảnh xe(Vui lòng chọn 3 hình)</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <select id="NCC" class="form-control" style="height:50px" required="required" ng-model="Xe.IdNhaCungCap">
+                            <option value="">-----Chọn-----</option>
+                            <option ng-repeat="ncc in ListNCC" value="{{ncc.IdNhaCungCap}}">{{ncc.TenNCC}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <input type="number" id="GiaVon" name="GiaVon" class="form-control" required="required" placeholder="Giá vốn" ng-model="Xe.GiaVonXe" maxlength="12" max="999999999999">
+                        <label for="GiaVon">Giá vốn</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-label-group">
+                        <input type="number" id="GiaNiemYet" name="GiaNiemYet" class="form-control" required="required" placeholder="Giá niêm yết" ng-model="Xe.GiaNiemYetXe" maxlength="12" max="999999999999">
+                        <label for="GiaNiemYet">Giá niêm yết</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="form-group">
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-label-group">
+                        <input type="file" id="fileHinh2" name="Hinh2" accept="image/*" class="form-control" placeholder="Hình thứ hai">
+                        <input type="file" id="fileHinh2" name="fileHinh2" multiple onchange="angular.elementHinh2(this).scope().setFileHinh2(this)" accept="image/*" class="btn btn-warning" />
+                        <label for="fileHinh2">Hình thứ hai</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-label-group">
+                        @*<input type="file" id="fileHinh3" name="Hinh3" accept="image/*" class="form-control" placeholder="Hình thứ ba">
+                        <input type="file" id="fileHinh3" name="fileHinh3" multiple onchange="angular.elementHinh3(this).scope().setFileHinh3(this)" accept="image/*" class="btn btn-warning" />
+                        <label for="fileHinh3">Hình thứ ba</label>
+                    </div>
+                </div>
+               </div>
+            </div>*@
+        <div>
+            <input type="submit" style="margin-left:50%" class="btn btn-success" value="{{submitText}}" />
+        </div>
+    </form>
+</div>
+

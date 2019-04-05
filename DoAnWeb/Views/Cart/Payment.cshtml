@@ -1,0 +1,77 @@
+﻿@using System.Configuration
+@model List<DoAnWeb.Models.CartItem>
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-controller="PaymentController">
+
+    <div class="login">
+        <div class="wrap">
+            <div class="login-title">
+                <h4 class="title">Thanh toán</h4>
+                <div id="loginbox" class="loginbox">
+                    <form action="@ConfigurationManager.AppSettings["urlPaypal"]" method="post">
+                        <input type="hidden" name="business" value="@ConfigurationManager.AppSettings["accountBusiness"]" />
+
+                        <input type="hidden" name="return" value="@ConfigurationManager.AppSettings["urlReturn"]" />
+
+                        <input type="hidden" name="cmd" value="_xclick" />
+                        @if (Model.Count > 0)
+                        {
+                        <div class="form-group col-lg-5">
+                            <input class="form-control" type="text" name="name" value="Tên người mua: @ViewBag.Name" />
+                            <input class="form-control" type="text" name="phone" value="SĐT người mua: @ViewBag.Phone" />
+                            <input class="form-control" type="text" name="email" value="Email người mua: @ViewBag.Email" />
+                        </div>
+                        <table class="table">
+                            <tr>
+                                <th scope="row">
+                                    <label>Tên xe: </label>
+                                </th>
+                                <th scope="row">
+                                    <label>Số lượng: </label>
+                                </th>
+                                <th scope="row">
+                                    <label>Số tiền: </label>
+                                </th>
+                                <th scope="row">
+                                    <label>Loại tiền: </label>
+                                </th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">
+                                        <input class="form-control" type="text" name="item_name" value="@item.SanPham.TenXe" />
+                                    </th>
+                                    <th scope="row">
+                                        <input class="form-control" type="text" name="quantity" value="@item.SoLuong" />
+                                    </th>
+                                    <th scope="row">
+                                        <input class="form-control" type="text" name="amount" value="@string.Format("{0}", Math.Floor((decimal)(item.SanPham.GiaNiemYetXe * item.SoLuong)/22000))" />
+                                    </th>
+                                    <th scope="row">
+                                        <input class="form-control" type="text" name="currency_code" value="USD" />
+                                    </th>
+                                </tr>
+                            }
+                        </table>
+                        }
+
+                        <input type="image" name="submit" border="0"
+                               src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" />
+                        <img alt="" border="0" width="1" height="1"
+                             src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" />
+
+                    </form>
+                </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+</div>
+

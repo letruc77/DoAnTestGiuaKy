@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script>
+    function initMap() {
+        var point = { lat: 10.816641, lng: 106.677258 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 17,
+            center: point,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        var marker = new google.maps.Marker({
+            position: point,
+            map: map
+        });
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAU7LuOM3POaH8sFjPuOpIjpuJbP-BoXzk&callback=initMap" async defer></script>
+<div class="register_account">
+    <div class="wrap">
+        <h4 class="title">Thông tin liên hệ</h4>
+        <form>
+            <div class="col_1_of_2 span_1_of_2">
+                <div class="form-group">
+                    <select required="required" class="form-control">
+                        <option value="">Giới tính</option>
+                        <option value="Nam">Nam</option>
+                        <option value="Nu">Nữ</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="tenHoTen" class="form-control" placeholder="Họ Tên" required="required" autofocus="autofocus" ng-model="nguoidung.TenNguoiDung">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="Email" class="form-control" placeholder="Email" required="required" ng-model="nguoidung.Email">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="soDienThoai" class="form-control" placeholder="Số điện thoại" required="required" ng-model="nguoidung.SoDienThoai" maxlength="11">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="diaChi" class="form-control" placeholder="Địa chỉ" required="required">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Nội Dung" required="required" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-danger" value="Gửi câu hỏi" />
+                </div>
+            </div>
+            <div class="col_1_of_2 span_1_of_2">
+                <div id="map"></div>
+            </div>
+            <div class="clear"></div>
+        </form>
+    </div>
+</div>

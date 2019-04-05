@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Thêm kho xe";
+}
+<div ng-controller="Admin_KhoXe">
+    <form novalidate name="f1" ng-submit="ThemKhoXe(KhoXe)">
+        <span style="padding-left:40%; color:forestgreen; font-size:30px"><b>THÊM KHO XE</b></span>
+        <hr />
+        <div style="color:red">{{message}}</div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-label-group">
+                        <input type="text" id="tenKhoXe" class="form-control" placeholder="Tên kho xe" required="required" autofocus="autofocus" ng-model="KhoXe.TenKho">
+                        <label for="tenKhoXe">Tên kho xe</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-label-group">
+                        <input type="text" id="diaChi" class="form-control" placeholder="Địa chỉ" required="required" autofocus="autofocus" ng-model="KhoXe.DiaChi">
+                        <label for="diaChi">Địa chỉ</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div>
+            <input type="submit" style="margin-left:50%" class="btn btn-success" value="{{submitText}}" />
+        </div>
+    </form>
+</div>
+

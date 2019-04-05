@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Admin - Cập nhật loại xe";
+}
+<div ng-controller="Admin_LoaiXe">
+    <form novalidate>
+        <span style="padding-left:40%; color:forestgreen; font-size:30px"><b>CẬP NHẬT LOẠI XE</b></span>
+        <hr />
+        <input id="IdLoaiXe" value="@ViewBag.xeUpdate.IdLoaiXe" hidden />
+        <div style="color:red">{{message}}</div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-label-group">
+                        <input type="text" id="tenLoaiXe" class="form-control" placeholder="Tên loại xe" required="required" autofocus="autofocus" value="@ViewBag.xeUpdate.TenLoaiXe">
+                        <label for="tenLoaiXe">Tên loại xe</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div>
+            <input type="submit" onclick="Luu()" style="margin-left:50%" class="btn btn-success" value="Lưu" />
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    function Luu() {
+        debugger;
+        var IdLoaiXe = $("#IdLoaiXe").val();
+        var TenLoaiXe = $("#tenLoaiXe").val();
+        var LoaiXe = {
+            IdLoaiXe: IdLoaiXe,
+            TenLoaiXe: TenLoaiXe
+        };
+        $.ajax({
+            url: "/Admin/Products/CapNhatLoaiXe",
+            type: "POST",
+            data: { LoaiXe: LoaiXe },
+            success: function (result) {
+                debugger;
+                if (result == "Success") {
+                    debugger;
+                    alert("Bạn đã cập nhật loại xe thành công");
+                    $window.location.href = 'http://localhost:54440/Admin/Products/LoaiXeIndex';
+                }
+                else {
+
+                }
+
+            }
+        });
+    }
+
+</script>

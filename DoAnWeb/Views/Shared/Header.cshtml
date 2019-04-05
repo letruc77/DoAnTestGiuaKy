@@ -1,0 +1,62 @@
+﻿@using DoAnWeb.Models;
+<div class="header-top">
+    <div class="wrap">
+        <div class="header-top-left">
+            <div class="box" style="padding-top: 3px">
+                <span style="color:gold;font-size:30px;padding-left:20%;padding-top:40%">CAR</span>
+            </div>
+        </div>
+        <div class="cssmenu">
+            <ul>
+                @*<li class="active"><a href="login.html">Tài khoản</a></li> |
+                    <li><a href="checkout.html">Thanh toán</a></li> |*@
+                @{ var cart = Session["AccountSession"];
+                    var acc = new List<NguoiDung>();
+                    if (cart != null)
+                    {
+                        acc = (List<NguoiDung>)cart;
+                        <li style="color:white">Xin chào: <strong style="font-size:15px;">@acc[0].TenNguoiDung</strong></li>
+                        <li><a href="/Login/LogOut">(Đăng Xuất)</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Login/Login">Đăng nhập</a></li>
+                        <span style="color:white">|</span>
+                        <li><a href="/Login/Register">Đăng ký </a></li>
+                    } }
+
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="header-bottom">
+    <div class="wrap">
+        <div class="header-bottom-left">
+            <div class="logo">
+                <a href="/Home/Index"><img src="~/images/logo.png" alt="" /></a>
+            </div>
+            <div class="menu">
+                <ul class="megamenu skyblue">
+                    <li class="active grid"><a href="/Home/Index">Trang chủ</a></li>
+                    <li>
+                        <a class="color4" href="#">Danh mục</a>
+                        @*</li>
+                            <li><a class="color5" href="#">Hot</a>*@
+                    </li>
+                    <li><a class="color6" href="/Home/About">Giới thiệu</a></li>
+                    <li><a class="color7" href="/Home/Contact">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header-bottom-right">
+            <div class="search">
+                <input type="text" name="s" class="textbox" value="Tìm kiếm" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                <input type="submit" value="Subscribe" id="submit" name="submit">
+                <div id="response"> </div>
+            </div>
+            @{ Html.RenderAction("CartView", "Home"); }
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Admin - Nhà cung cấp";
+}
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/admin/admin/adminhome">Admin</a>
+        </li>
+        <li class="breadcrumb-item active">Nhà cung cấp</li>
+    </ol>
+    <div class="row">
+
+    </div>
+</div>
+<div class="card mb-3" ng-controller="Admin_NCC">
+    <div class="card-header" style="float:left">
+        <i class="fas fa-table"></i>
+        Danh sách
+        <span style="margin-left:70%">
+            <button onclick="window.location.href = '/Admin/Supplier/ThemNhaCungCap'" class="btn btn-success">Thêm</button>
+        </span>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên nhà cung cấp</th>
+                        <th>Địa chỉ</th>
+                        <th>Tình trạng</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ncc in ListNCC">
+                        <td>{{ncc.TenNCC}}</td>
+                        <td>{{ncc.DiaChi}}</td>
+                        <td>{{ncc.TinhTrang}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8f35e72afc934687bf4d263486df4b99" Name="Diagram1">
+        <EntityTypeShape EntityType="DoAnNganhModel.CTGioHang" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.CTHoaDonChi" Width="1.5" PointX="10.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.CTHoaDonThu" Width="1.5" PointX="5.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.DanhMuc" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.GioHang" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.HoaDonChi" Width="1.5" PointX="6" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.HoaDonThu" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.KhoXe" Width="1.5" PointX="5.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.LoaiXe" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.NguoiDung" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.NhaCungCap" Width="1.5" PointX="3.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.Quyen" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.sysdiagram" Width="1.5" PointX="2.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnNganhModel.Xe" Width="1.5" PointX="8" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="DoAnNganhModel.FK_CTGioHang_GioHang" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_CTGioHang_Xe" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_CTHoaDonChi_HoaDonChi" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_CTHoaDonChi_Xe" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_CTHoaDonThu_HoaDonThu" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_CTHoaDonThu_Xe" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_GioHang_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_HoaDonChi_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_HoaDonChi_NhaCungCap" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_HoaDonThu_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_Xe_KhoXe" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_Xe_LoaiXe" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_Quyen_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_Xe_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnNganhModel.FK_Xe_NhaCungCap" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

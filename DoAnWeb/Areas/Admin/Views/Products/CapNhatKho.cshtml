@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Cập nhật kho xe";
+}
+<div ng-controller="Admin_KhoXe">
+    <form novalidate>
+        <span style="padding-left:40%; color:forestgreen; font-size:30px"><b>CẬP NHẬT KHO XE</b></span>
+        <hr />
+        <input id="IdKho" value="@ViewBag.KhoUpdate.IdKhoXe" hidden />
+        <div style="color:red">{{message}}</div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-label-group">
+                        <input type="text" id="tenKhoXe" class="form-control" placeholder="Tên kho xe" required="required" autofocus="autofocus" value="@ViewBag.KhoUpdate.TenKho">
+                        <label for="tenKhoXe">Tên kho xe</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-label-group">
+                        <input type="text" id="diaChi" class="form-control" placeholder="Địa chỉ" required="required" autofocus="autofocus" value="@ViewBag.KhoUpdate.DiaChi">
+                        <label for="diaChi">Địa chỉ</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div>
+            <input type="submit" style="margin-left:50%" class="btn btn-success" value="Lưu" onclick="Luu()" />
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    function Luu() {
+        debugger;
+        var IdKhoXe = $("#IdKho").val();
+        var TenKho = $("#tenKhoXe").val();
+        var DiaChi = $("#diaChi").val();
+        var KhoXe = {
+            IdKhoXe: IdKhoXe,
+            TenKho: TenKho,
+            DiaChi: DiaChi
+        };
+        $.ajax({
+            url: "/Admin/Products/CapNhatKho",
+            type: "POST",
+            data: { KhoXe: KhoXe },
+            success: function (result) {
+                debugger;
+                if (result == "Success") {
+                    debugger;
+                    alert("Bạn đã cập nhật kho xe thành công");
+                    $window.location.href = 'http://localhost:54440/Admin/Products/KhoXeIndex';
+                }
+                else {
+
+                }
+
+            }
+        });
+    }
+
+</script>
+
