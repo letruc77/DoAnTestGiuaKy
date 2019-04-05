@@ -36,5 +36,18 @@ namespace UnitTestDoAnGiuaKy
             var mes = result.Data.ToString();
             Assert.AreEqual("success", mes);
         }
+        [TestMethod]
+        public void TestLogin2()
+        {
+            string username = "admin";
+            string password = "abc@123456";
+            DoAnWeb.NguoiDung nd = new NguoiDung();
+            nd.TenNguoiDung = username;
+            nd.PassWord = password; ;
+            DoAnWeb.Areas.Admin.Controllers.AdminLoginController ctrl = new DoAnWeb.Areas.Admin.Controllers.AdminLoginController();
+            var result = ctrl.AdminLogin(nd) as JsonResult;
+            var mes = result.Data.ToString();
+            Assert.AreNotEqual("success", mes);
+        }
     }
 }
