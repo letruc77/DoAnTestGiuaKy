@@ -177,7 +177,7 @@ namespace UnitTestDoAnGiuaKy
             Assert.AreNotEqual(null, mes);
         }
         [TestMethod]
-        public void TestInitalKhoXeThemLoaiXe()
+        public void TestThemLoaiXe()
         {
             DoAnWeb.LoaiXe loaixe = new LoaiXe();
             loaixe.CreatedDate = DateTime.Now;
@@ -189,6 +189,15 @@ namespace UnitTestDoAnGiuaKy
             var mes = result.Data.ToString();
             Assert.AreEqual("Success", mes);
         }
+        [TestMethod]
+        public void TestDanhSachXe()
+        {
+            DoAnWeb.Areas.Admin.Controllers.ProductsController ctrl = new DoAnWeb.Areas.Admin.Controllers.ProductsController();
+            var result = ctrl.DanhSachXe();
+            var mes = result.Data.ToString();
+            Assert.AreNotEqual(null, mes);
+        }
+
         #endregion
     }
 }
