@@ -197,7 +197,15 @@ namespace UnitTestDoAnGiuaKy
             var mes = result.Data.ToString();
             Assert.AreNotEqual(null, mes);
         }
-
+        [TestMethod]
+        public void UploadFiles()
+        {
+            DoAnWeb.Areas.Admin.Controllers.ProductsController ctrl = new DoAnWeb.Areas.Admin.Controllers.ProductsController();
+            object obj = new object();
+            var result = ctrl.UploadFiles(obj);
+            Assert.AreNotEqual("{0} bytes uploaded", result);
+        }
+        
         #endregion
     }
 }
