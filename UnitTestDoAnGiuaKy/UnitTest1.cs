@@ -221,6 +221,14 @@ namespace UnitTestDoAnGiuaKy
             string result = ctrl.CapNhatLoaiXe(lx);
             Assert.AreNotEqual("Success", result);
         }
+        [TestMethod]
+        public void TestCapNhatKho()
+        {
+            DoAnWeb.KhoXe lx = new KhoXe();
+            DoAnWeb.Areas.Admin.Controllers.ProductsController ctrl = new DoAnWeb.Areas.Admin.Controllers.ProductsController();
+            string result = ctrl.CapNhatKho(lx);
+            Assert.AreNotEqual("Success", result);
+        }
         
         #endregion
     }
