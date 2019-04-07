@@ -32,7 +32,6 @@ namespace UnitTestDoAnGiuaKy
         //[TestInitialize]
         public void TestLogin()
         {
-            //OpenConectionString(connectionString);
             string username = "admin";
             string password = "admin2019";
             DoAnWeb.NguoiDung nd = new NguoiDung();
