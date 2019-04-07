@@ -213,6 +213,15 @@ namespace UnitTestDoAnGiuaKy
             ctrl.UpdateSoLuongLoaiXe(IdLoaiXe);
             //Assert.AreNotEqual("{0} bytes uploaded", result);
         }
+        [TestMethod]
+        public void TestCapNhatLoaiXe()
+        {
+            DoAnWeb.LoaiXe lx = new LoaiXe();
+            DoAnWeb.Areas.Admin.Controllers.ProductsController ctrl = new DoAnWeb.Areas.Admin.Controllers.ProductsController();
+            string result = ctrl.CapNhatLoaiXe(lx);
+            Assert.AreNotEqual("Success", result);
+        }
+        
         #endregion
     }
 }
