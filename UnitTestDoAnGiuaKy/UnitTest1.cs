@@ -139,7 +139,7 @@ namespace UnitTestDoAnGiuaKy
             //Assert.IsTrue("",ctrl.GuiEmail(SoKhung));
         }
         [TestMethod]
-        public void TestAddProduct()
+        public void TestAddProductNew()
         {
             DoAnWeb.Xe xe = new Xe();
             DoAnWeb.Areas.Admin.Controllers.ProductsController ctrl = new DoAnWeb.Areas.Admin.Controllers.ProductsController();
@@ -155,7 +155,8 @@ namespace UnitTestDoAnGiuaKy
             xe.MaLoaiXe = Guid.Parse("89E51C6D-C3F2-4448-B819-100BF449F70F");
             xe.SoMay = "SM123456";
             xe.SoKhung = "SK123456";
-            var result = ctrl.ThemXe(xe, "");
+            string listhinh = "";
+            var result = ctrl.ThemXe(xe,listhinh);
             var mes = result.Data.ToString();
             Assert.AreEqual("Bạn đã thêm xe thành công.", mes);
         }
@@ -174,6 +175,19 @@ namespace UnitTestDoAnGiuaKy
             var result = ctrl.InitalKhoXe();
             var mes = result.Data.ToString();
             Assert.AreNotEqual(null, mes);
+        }
+        [TestMethod]
+        public void TestInitalKhoXeThemLoaiXe()
+        {
+            DoAnWeb.LoaiXe loaixe = new LoaiXe();
+            loaixe.CreatedDate = DateTime.Now;
+            loaixe.MauXe = "";
+            loaixe.SoLuong = 100;
+            loaixe.TenLoaiXe = "Audi";
+            DoAnWeb.Areas.Admin.Controllers.ProductsController ctrl = new DoAnWeb.Areas.Admin.Controllers.ProductsController();
+            var result = ctrl.ThemLoaiXe(loaixe);
+            var mes = result.Data.ToString();
+            Assert.AreEqual("Success", mes);
         }
         #endregion
     }
