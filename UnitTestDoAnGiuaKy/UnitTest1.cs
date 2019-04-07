@@ -27,6 +27,7 @@ namespace UnitTestDoAnGiuaKy
         [TestMethod]
         public void TestLogin()
         {
+            // ba noi m truc
             string username = "admin";
             string password = "admin2019";
             DoAnWeb.NguoiDung nd = new NguoiDung();
