@@ -43,10 +43,6 @@ namespace UnitTestDoAnGiuaKy
             var mes = result.Data.ToString();
             Assert.AreEqual("success", mes);
         }
-
-
-
-
         private String GetMD5(string txt)
         {
             String str = "";
