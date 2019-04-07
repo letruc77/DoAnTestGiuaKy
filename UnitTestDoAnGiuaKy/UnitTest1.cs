@@ -167,6 +167,14 @@ namespace UnitTestDoAnGiuaKy
             var mes = result.Data.ToString();
             Assert.AreNotEqual(null,mes);
         }
+        [TestMethod]
+        public void TestInitalKhoXe()
+        {
+            DoAnWeb.Areas.Admin.Controllers.ProductsController ctrl = new DoAnWeb.Areas.Admin.Controllers.ProductsController();
+            var result = ctrl.InitalKhoXe();
+            var mes = result.Data.ToString();
+            Assert.AreNotEqual(null, mes);
+        }
         #endregion
     }
 }
