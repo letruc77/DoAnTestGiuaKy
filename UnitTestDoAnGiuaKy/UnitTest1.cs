@@ -205,7 +205,14 @@ namespace UnitTestDoAnGiuaKy
             var result = ctrl.UploadFiles(obj);
             Assert.AreNotEqual("{0} bytes uploaded", result);
         }
-        
+        [TestMethod]
+        public void TestUpdateSoLuongLoaiXe()
+        {
+            Guid IdLoaiXe = Guid.Parse("89E51C6D-C3F2-4448-B819-100BF449F70F");
+            DoAnWeb.Areas.Admin.Controllers.ProductsController ctrl = new DoAnWeb.Areas.Admin.Controllers.ProductsController();
+            ctrl.UpdateSoLuongLoaiXe(IdLoaiXe);
+            //Assert.AreNotEqual("{0} bytes uploaded", result);
+        }
         #endregion
     }
 }
