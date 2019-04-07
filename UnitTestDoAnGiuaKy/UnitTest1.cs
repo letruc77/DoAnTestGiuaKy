@@ -130,6 +130,14 @@ namespace UnitTestDoAnGiuaKy
             var mes = result.Data.ToString();
             Assert.AreEqual("Bạn đã thêm xe thành công.", mes);
         }
+        [TestMethod]
+        public void TestGuiEmail()
+        {
+            string SoKhung = "sokhung123";
+            DoAnWeb.Areas.Admin.Controllers.ProductsController ctrl = new DoAnWeb.Areas.Admin.Controllers.ProductsController();
+            ctrl.GuiEmail(SoKhung);
+            //Assert.IsTrue("",ctrl.GuiEmail(SoKhung));
+        }
         #endregion
     }
 }
