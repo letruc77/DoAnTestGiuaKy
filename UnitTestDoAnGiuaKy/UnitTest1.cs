@@ -229,7 +229,15 @@ namespace UnitTestDoAnGiuaKy
             string result = ctrl.CapNhatKho(lx);
             Assert.AreNotEqual("Success", result);
         }
-        
+        //thêm nhà cung cấp có trùng id 
+        [TestMethod]
+        public void DSNhaCungCap()
+        {
+            DoAnWeb.Areas.Admin.Controllers.SupplierController ctrl = new DoAnWeb.Areas.Admin.Controllers.SupplierController();
+            var result = ctrl.LoadNCC();
+            var mes = result.Data.ToString();
+            Assert.AreNotEqual(null, mes);
+        }
         #endregion
     }
 }
