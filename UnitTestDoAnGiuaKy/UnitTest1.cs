@@ -255,6 +255,34 @@ namespace UnitTestDoAnGiuaKy
             var result = ctrl.ThemNhaCungCap(ncc);
             Assert.AreEqual("Đã xảy ra lỗi!", result);
         }
+        [TestMethod]
+        public void CapNhatNCC()
+        {
+            DoAnWeb.Areas.Admin.Controllers.SupplierController ctrl = new DoAnWeb.Areas.Admin.Controllers.SupplierController();
+            DoAnWeb.NhaCungCap ncc = new NhaCungCap();
+            //ncc.IdNhaCungCap = Guid.Parse("F3409D77-8847-43BA-B408-2C51470B2FAC");
+            var result = ctrl.ThemNhaCungCap(ncc);
+            Assert.AreEqual("Đã xảy ra lỗi!", result);
+        }
+        [TestMethod]
+        public void TestAddProductNewNotPicture()
+        {
+            DoAnWeb.Xe xe = new Xe();
+            DoAnWeb.Areas.Admin.Controllers.ProductsController ctrl = new DoAnWeb.Areas.Admin.Controllers.ProductsController();
+            xe.ChiTiet = "Unit Test";
+            xe.CreatedDate = DateTime.Now;
+            xe.GiaNiemYetXe = 10000;
+            xe.GiaVonXe = 5000;
+            xe.IdKhoXe = Guid.Parse("ACBA9D50-0AC8-47B3-BE54-B2EC5DD5686C");
+            xe.IdNhaCungCap = Guid.Parse("F3409D77-8847-43BA-B408-2C51470B2FAC");
+            xe.MaLoaiXe = Guid.Parse("89E51C6D-C3F2-4448-B819-100BF449F70F");
+            xe.SoMay = "SM123456";
+            xe.SoKhung = "SK123456";
+            string listhinh = "";
+            var result = ctrl.ThemXe(xe, listhinh);
+            var mes = result.Data.ToString();
+            Assert.AreEqual("Bạn đã thêm xe thành công.", mes);
+        }
         #endregion
     }
 }
