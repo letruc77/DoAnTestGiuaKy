@@ -238,6 +238,13 @@ namespace UnitTestDoAnGiuaKy
             var mes = result.Data.ToString();
             Assert.AreNotEqual(null, mes);
         }
+        [TestMethod]
+        public void ThemNCC()
+        {
+            DoAnWeb.Areas.Admin.Controllers.SupplierController ctrl = new DoAnWeb.Areas.Admin.Controllers.SupplierController();
+            var result = ctrl.ThemNhaCungCap();
+            Assert.AreNotEqual("Thêm thành công", result);
+        }
         #endregion
     }
 }
