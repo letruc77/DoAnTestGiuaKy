@@ -69,7 +69,8 @@ namespace DoAnWeb.Areas.Admin.Controllers
                 }
                 else
                 {
-                    NCC.IdNhaCungCap = Guid.NewGuid();
+                    if(NCC.IdNhaCungCap.ToString() != "00000000-0000-0000-0000-000000000000" || NCC.IdNhaCungCap.ToString() != "" || NCC.IdNhaCungCap.ToString() != null)
+                        NCC.IdNhaCungCap = Guid.NewGuid();
                     NCC.TinhTrang = true;
                     NCC.IsDeleted = false;
                     daw.NhaCungCaps.Add(NCC);

@@ -242,8 +242,18 @@ namespace UnitTestDoAnGiuaKy
         public void ThemNCC()
         {
             DoAnWeb.Areas.Admin.Controllers.SupplierController ctrl = new DoAnWeb.Areas.Admin.Controllers.SupplierController();
-            var result = ctrl.ThemNhaCungCap();
+            DoAnWeb.NhaCungCap ncc = new NhaCungCap();
+            var result = ctrl.ThemNhaCungCap(ncc);
             Assert.AreNotEqual("Thêm thành công", result);
+        }
+        [TestMethod]
+        public void ThemNCCId()
+        {
+            DoAnWeb.Areas.Admin.Controllers.SupplierController ctrl = new DoAnWeb.Areas.Admin.Controllers.SupplierController();
+            DoAnWeb.NhaCungCap ncc = new NhaCungCap();
+            ncc.IdNhaCungCap = Guid.Parse("F3409D77-8847-43BA-B408-2C51470B2FAC");
+            var result = ctrl.ThemNhaCungCap(ncc);
+            Assert.AreEqual("Đã xảy ra lỗi!", result);
         }
         #endregion
     }
