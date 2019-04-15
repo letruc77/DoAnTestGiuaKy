@@ -61,15 +61,21 @@ namespace DoAnWeb.Controllers
             string message = "";
             try
             {
-                nguoidung.IdNguoiDung = Guid.NewGuid();
-                nguoidung.PassWord = GetMD5(nguoidung.PassWord);
-                nguoidung.IsDeleted = false;
-                nguoidung.TinhTrang = true;
-                nguoidung.CreatedDate = DateTime.Now;
-                nguoidung.UpdatedDate = DateTime.Now;
-                daw.NguoiDungs.Add(nguoidung);
-                daw.SaveChanges();
-                message = "Đăng ký thành công!";
+                NguoiDung nd = daw.NguoiDungs.Where(x => x.Email == nguoidung.Email && x.IsDeleted == false).FirstOrDefault();
+                if (nd != null)
+                {
+                    nguoidung.IdNguoiDung = Guid.NewGuid();
+                    nguoidung.PassWord = GetMD5(nguoidung.PassWord);
+                    nguoidung.IsDeleted = false;
+                    nguoidung.TinhTrang = true;
+                    nguoidung.CreatedDate = DateTime.Now;
+                    nguoidung.UpdatedDate = DateTime.Now;
+                    daw.NguoiDungs.Add(nguoidung);
+                    daw.SaveChanges();
+                    message = "Đăng ký thành công!";
+                }
+                else
+                    message = "Trùng user!";
             }
             catch (Exception ex)
             {

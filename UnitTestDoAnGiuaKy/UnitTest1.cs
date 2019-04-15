@@ -417,8 +417,19 @@ namespace UnitTestDoAnGiuaKy
         [TestMethod]
         public void RegisterUserFalseNoPassWord()
         {
+            NguoiDung nd = new NguoiDung();
             DoAnWeb.Controllers.LoginController ctrl = new LoginController();
-            var result = ctrl.Register();
+            nd.Email = "truc.lecong@gmail.com";
+            nd.PassWord = "";
+            var result = ctrl.Register(nd);
+            Assert.AreNotEqual("Đăng ký thành công!", result);
+        }
+        [TestMethod]
+        public void RegisterUser()
+        {
+            NguoiDung nd = new NguoiDung();
+            DoAnWeb.Controllers.LoginController ctrl = new LoginController();
+            var result = ctrl.Register(nd);
             Assert.AreEqual("Đăng ký thành công!", result);
         }
         #endregion
