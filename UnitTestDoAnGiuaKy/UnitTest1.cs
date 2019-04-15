@@ -384,6 +384,16 @@ namespace UnitTestDoAnGiuaKy
             var result = ctrl.Login(nd);
             Assert.AreNotEqual(nd, result.Data);
         }
+        [TestMethod]
+        public void LoginUserFalsePassword()
+        {
+            DoAnWeb.Controllers.LoginController ctrl = new LoginController();
+            NguoiDung nd = new NguoiDung();
+            nd.Email = "thlong@gmail.com";
+            nd.PassWord = "";
+            var result = ctrl.Login(nd);
+            Assert.AreNotEqual(nd, result.Data);
+        }
         #endregion
     }
 
