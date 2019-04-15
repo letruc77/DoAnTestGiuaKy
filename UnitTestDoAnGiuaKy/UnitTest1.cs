@@ -369,9 +369,12 @@ namespace UnitTestDoAnGiuaKy
         {
             DoAnWeb.Controllers.LoginController ctrl = new LoginController();
             NguoiDung nd = new NguoiDung();
+            nd.Email = "letruc9394@gmail.com";
+            nd.PassWord = "admin2019";
             var result = ctrl.Login(nd);
             Assert.AreEqual(nd, result.Data);
         }
+
         #endregion
     }
 
