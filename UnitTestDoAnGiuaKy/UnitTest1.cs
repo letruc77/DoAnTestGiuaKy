@@ -345,6 +345,13 @@ namespace UnitTestDoAnGiuaKy
             var result = ctrl.Delete(id);
             Assert.AreEqual(true, result.Data);
         }
+        [TestMethod]
+        public void DeleteAllInCart()
+        {
+            DoAnWeb.Controllers.CartController ctrl = new CartController();
+            var result = ctrl.DeleteAll();
+            Assert.AreEqual(true, result.Data);
+        }
         #endregion
     }
 }
