@@ -330,6 +330,13 @@ namespace UnitTestDoAnGiuaKy
             ActionResult result = ctrl.AddItem(SanPhamID, SoLuong);
             Assert.AreNotEqual(null, result);
         }
+        [TestMethod]
+        public void InitalCart()
+        {
+            DoAnWeb.Controllers.CartController ctrl = new CartController();
+            var result = ctrl.Index();
+            Assert.AreNotEqual(null, result);
+        }
         #endregion
     }
 }
