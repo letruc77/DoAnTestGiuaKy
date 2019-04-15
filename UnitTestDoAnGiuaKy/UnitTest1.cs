@@ -414,6 +414,13 @@ namespace UnitTestDoAnGiuaKy
             var result = ctrl.Login(nd);
             Assert.AreNotEqual(nd, result.Data);
         }
+        [TestMethod]
+        public void RegisterUserFalseNoPassWord()
+        {
+            DoAnWeb.Controllers.LoginController ctrl = new LoginController();
+            var result = ctrl.Register();
+            Assert.AreEqual("Đăng ký thành công!", result);
+        }
         #endregion
     }
 
