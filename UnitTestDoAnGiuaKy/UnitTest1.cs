@@ -362,7 +362,16 @@ namespace UnitTestDoAnGiuaKy
             var result = ctrl.Login(nd);
             Assert.AreNotEqual(null, result);
         }
+        [TestMethod]
+        public void LoginUserTrue()
+        {
+            DoAnWeb.Controllers.LoginController ctrl = new LoginController();
+            NguoiDung nd = new NguoiDung();
+            var result = ctrl.Login(nd);
+            Assert.AreEqual(nd, result.Data);
+        }
         #endregion
     }
+
 }
 
