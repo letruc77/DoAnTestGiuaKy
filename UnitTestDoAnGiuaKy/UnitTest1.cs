@@ -434,6 +434,16 @@ namespace UnitTestDoAnGiuaKy
             var result = ctrl.Register(nd);
             Assert.AreEqual("Trùng user!", result);
         }
+        [TestMethod]
+        public void RegisterUserFalse()
+        {
+            NguoiDung nd = new NguoiDung();
+            DoAnWeb.Controllers.LoginController ctrl = new LoginController();
+            nd.Email = "";
+            nd.PassWord = "";
+            var result = ctrl.Register(nd);
+            Assert.AreEqual("Trùng user!", result);
+        }
         #endregion
     }
 
