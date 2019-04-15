@@ -6,6 +6,7 @@ using DoAnWeb.Areas;
 using DoAnWeb.Models;
 using System.Web.Mvc;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace UnitTestDoAnGiuaKy
 {
@@ -282,6 +283,28 @@ namespace UnitTestDoAnGiuaKy
             var result = ctrl.ThemXe(xe, listhinh);
             var mes = result.Data.ToString();
             Assert.AreEqual("Bạn đã thêm xe thành công.", mes);
+        }
+        #endregion
+        #region test về giao diện
+        [TestMethod]
+        public void BanChayNhat()
+        {
+            DoAnWeb.Controllers.HomeController ctrl = new HomeController();
+            List<Xe> listXe = new List<Xe>();
+            DoAnWebEntities daw = new DoAnWebEntities();
+            daw.Configuration.ProxyCreationEnabled = false;
+            var result = ctrl.LoadListXeBest();
+            Assert.AreNotEqual(null, result);
+        }
+        [TestMethod]
+        public void MoiNhat()
+        {
+
+        }
+        [TestMethod]
+        public void ChiTiet()
+        {
+
         }
         #endregion
     }
