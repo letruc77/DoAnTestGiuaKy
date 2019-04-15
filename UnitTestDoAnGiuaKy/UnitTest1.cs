@@ -299,7 +299,12 @@ namespace UnitTestDoAnGiuaKy
         [TestMethod]
         public void MoiNhat()
         {
-
+            DoAnWeb.Controllers.HomeController ctrl = new HomeController();
+            List<Xe> listXe = new List<Xe>();
+            DoAnWebEntities daw = new DoAnWebEntities();
+            daw.Configuration.ProxyCreationEnabled = false;
+            var result = ctrl.LoadListXeNew();
+            Assert.AreNotEqual(null, result);
         }
         [TestMethod]
         public void ChiTiet()
