@@ -294,7 +294,12 @@ namespace UnitTestDoAnGiuaKy
             DoAnWebEntities daw = new DoAnWebEntities();
             daw.Configuration.ProxyCreationEnabled = false;
             var result = ctrl.LoadListXeBest();
-            Assert.AreNotEqual(null, result);
+            int count = 0;
+            foreach(var item in result.Data.ToString())
+            {
+                count++;
+            }
+            Assert.AreEqual(9, count);
         }
         [TestMethod]
         public void MoiNhat()
