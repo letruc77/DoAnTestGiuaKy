@@ -307,9 +307,11 @@ namespace UnitTestDoAnGiuaKy
             Assert.AreNotEqual(null, result);
         }
         [TestMethod]
-        public void ChiTiet()
+        public void ChiTiet(string data)
         {
-
+            DoAnWeb.Controllers.HomeController ctrl = new HomeController();
+            ActionResult result = ctrl.Single(data);
+            Assert.AreNotEqual(null, result);
         }
         #endregion
     }
