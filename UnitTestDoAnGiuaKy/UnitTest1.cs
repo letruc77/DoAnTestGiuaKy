@@ -429,8 +429,10 @@ namespace UnitTestDoAnGiuaKy
         {
             NguoiDung nd = new NguoiDung();
             DoAnWeb.Controllers.LoginController ctrl = new LoginController();
+            nd.Email = "letruc9394@gmail.com";
+            nd.PassWord = "";
             var result = ctrl.Register(nd);
-            Assert.AreEqual("Đăng ký thành công!", result);
+            Assert.AreEqual("Trùng user!", result);
         }
         #endregion
     }
